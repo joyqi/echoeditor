@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
         <link rel="stylesheet" href="./style.css">
+        <title>回声编辑器</title>
     </head>
     <body>
         <audio id="audio-click">
@@ -9,7 +11,14 @@
         </audio>
         <details id="config">
             <summary>选项</summary>
-
+            
+            <br>
+            <label for="font-family">字体</label><br>
+            <select id="font-family">
+                <option value="sans-serif">无衬线字体</option>
+                <option value="serif">有衬线字体</option>
+                <option value="monospace">等宽字体</option>
+            </select><br>
             <br>
             <label for="font-size">字体大小</label><br>
             <input id="font-size" type="range" step="1" min="13" max="25"><br>
@@ -18,8 +27,15 @@
             <input type="color" id="text-color" pattern="#[0-9A-Fa-f]{6}" autocomplete="off" value="#0000FF"><br>
             <br>
             <label for="background-color">背景颜色</label><br>
-            <input type="color" id="background-color" pattern="#[0-9A-Fa-f]{6}" autocomplete="off" value="#0000FF">
+            <input type="color" id="background-color" pattern="#[0-9A-Fa-f]{6}" autocomplete="off" value="#0000FF"><br>
+            <br>
+            <label for="key-sound">键盘音</label><br>
+            <select id="key-sound">
+                <option value="none">静音</option>
+                <option value="click">打字机</option>
+            </select>
         </details>
+        <div id="word-count">0</div>
         <div id="editor" contenteditable="plaintext-only"></div>
         <script src="./script.js"></script>
     </body>

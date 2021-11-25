@@ -25,6 +25,12 @@ summary {
     background: #FFF;
 }
 
+#word-count {
+    position: fixed;
+    left: 1em;
+    top: 1em;
+}
+
 #editor {
     -webkit-user-modify: read-write-plaintext-only;
     margin: 0 auto;
