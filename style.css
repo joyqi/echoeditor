@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    padding: 1em;
+    margin: 0;
+}
+
+summary {
+    cursor: pointer;
+}
+
+#config {
+    position: fixed;
+    right: 1em;
+    top: 1em;
+    font-size: 14px;
+    border: 1px solid #777;
+    padding: 1em;
+    background: #FFF;
+}
+
+#editor {
+    -webkit-user-modify: read-write-plaintext-only;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 780px;
+    min-height: 10em;
+    padding: .5em;
+    border: 1px dotted #c7c7c7;
+    outline: none;
+}
+
+#editor:focus {
+    border-color: #777;
+}

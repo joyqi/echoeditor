@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <audio id="audio-click">
+            <source src="./audio/click.wav">
+        </audio>
+        <details id="config">
+            <summary>选项</summary>
+
+            <br>
+            <label for="font-size">字体大小</label><br>
+            <input id="font-size" type="range" step="1" min="13" max="25"><br>
+            <br>
+            <label for="text-color">字体颜色</label><br>
+            <input type="color" id="text-color" pattern="#[0-9A-Fa-f]{6}" autocomplete="off" value="#0000FF"><br>
+            <br>
+            <label for="background-color">背景颜色</label><br>
+            <input type="color" id="background-color" pattern="#[0-9A-Fa-f]{6}" autocomplete="off" value="#0000FF">
+        </details>
+        <div id="editor" contenteditable="plaintext-only"></div>
+        <script src="./script.js"></script>
+    </body>
+</html>
