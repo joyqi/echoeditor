@@ -42,6 +42,31 @@ function isTypingText(e) {
     return false;
 }
 
+function createAudioContext(audio) {
+    const context = new (window.AudioContext || window.webkitAudioContext)();
+    const url = './audio/' + audio + '.wav';
+
+    return new Promise((resolve, reject) => {
+        fetch(url)
+            .then(response => response.arrayBuffer())
+            .then(audioData => {
+                context.decodeAudioData(audioData, audioBuffer => {
+                    const play = () => {
+                        const source = context.createBufferSource();
+                        source.buffer = audioBuffer;
+                        source.connect(context.destination);
+                        source.start(0);
+                    };
+
+                    resolve(play);
+                }, error => {
+                    reject(error);
+                });
+            })
+            .catch(reject);
+    });
+}
+
 function loadConfig() {
     const defaultConfig = {
         fontFamily: 'sans-serif',
@@ -73,9 +98,7 @@ function applyConfig(sel, column, cb) {
 
 function playKeySound() {
     if (keySoundAudio) {
-        keySoundAudio.currentTime = 0;
-        keySoundAudio.muted = false;
-        keySoundAudio.play();
+        keySoundAudio();
     }
 }
 
@@ -122,7 +145,7 @@ applyConfig('#key-sound', 'keySound', (keySound) => {
     }
 
     if (keySound != 'none') {
-        keySoundAudio = new Audio('./audio/' + keySound + '.wav');
+        createAudioContext(keySound).then(play => keySoundAudio = play);
     }
 });
 
