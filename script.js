@@ -3,6 +3,7 @@ const config = loadConfig();
 const editor = $('#editor');
 const wordCount = $('#word-count');
 let keySoundAudio = null;
+let ready = false;
 
 function makeStyle(color, alpha) {
     let match = color.match(/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i);
@@ -145,7 +146,22 @@ applyConfig('#key-sound', 'keySound', (keySound) => {
     }
 
     if (keySound != 'none') {
-        createAudioContext(keySound).then(play => keySoundAudio = play);
+        let apply = () => {
+            createAudioContext(keySound).then(play => keySoundAudio = play);
+        };
+
+        if (ready) {
+            apply();
+        } else {
+            ['keydown', 'click', 'touch'].forEach((e) => {
+                window.addEventListener(e, () => {
+                    if (!ready) {
+                        ready = true;
+                        apply();
+                    }
+                })
+            });
+        }
     }
 });
 
