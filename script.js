@@ -104,8 +104,17 @@ function playKeySound() {
 }
 
 function editorHandler() {
+    let supportPlainText = true;
+
     editor.innerText = localStorage.getItem('draft');
     textHandler(editor.innerText);
+
+    try {
+        editor.contentEditable = 'plaintext-only';
+        supportPlainText = editor.contentEditable == 'plaintext-only';
+    } catch {
+        supportPlainText = false;
+    }
 
     editor.addEventListener('input', function() {
         localStorage.setItem('draft', this.innerText);
@@ -117,6 +126,14 @@ function editorHandler() {
             playKeySound();
         }
     });
+
+    if (!supportPlainText) {
+        editor.addEventListener('paste', e => {
+            e.preventDefault();
+            const text = (e.originalEvent || e).clipboardData.getData('text/plain');
+            document.execCommand('insertText', false, text);
+        });
+    }
 }
 
 applyConfig('#font-family', 'fontFamily', (fontFamily) => {
