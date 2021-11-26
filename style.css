@@ -4,6 +4,7 @@
 
 html {
     -webkit-text-size-adjust: 100%;
+    line-height: 1.15;
 }
 
 body {
@@ -37,9 +38,10 @@ summary {
     width: 100%;
     max-width: 780px;
     min-height: 10em;
-    padding: .5em;
-    border: 1px dotted #c7c7c7;
+    padding: 2em;
+    border: 1px dashed #c7c7c7;
     outline: none;
+    line-height: 1.5;
 }
 
 #editor:focus {
