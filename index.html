@@ -14,12 +14,14 @@
             
             <br>
             <label for="font-family">字体</label><br>
-            <input type="text" id="font-family" list="font-list"><br>
-            <datalist id="font-list">
+            <select id="font-family">
                 <option value="sans-serif">无衬线字体</option>
                 <option value="serif">有衬线字体</option>
                 <option value="monospace">等宽字体</option>
-            </datalist>
+                <option value="song">宋体</option>
+                <option value="hei">黑体</option>
+                <option value="kai">楷体</option>
+            </select><br>
             <br>
             <label for="font-size">字体大小</label><br>
             <input id="font-size" type="range" step="1" min="13" max="25"><br>

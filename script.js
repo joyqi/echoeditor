@@ -4,6 +4,11 @@ const editor = $('#editor');
 const wordCount = $('#word-count');
 let keySoundAudio = null;
 let ready = false;
+const fonts = {
+    song: '"Times New Roman", STFangSong, FangSong, SimSun, serif',
+    hei: 'Arial, STHeiti, Hei, "Microsoft YaHei", SimHei, sans-serif',
+    kai: 'Georgia, STKaiti, Kai, SimKai, serif'
+};
 
 function makeStyle(color, alpha) {
     let match = color.match(/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i);
@@ -144,7 +149,7 @@ function editorHandler() {
 }
 
 applyConfig('#font-family', 'fontFamily', (fontFamily) => {
-    document.body.style.fontFamily = fontFamily;
+    document.body.style.fontFamily = fonts[fontFamily] ?? fontFamily;
 });
 
 applyConfig('#font-size', 'fontSize', (fontSize) => {
