@@ -26,6 +26,12 @@ summary {
     background: #FFF;
 }
 
+[placeholder]:empty::before {
+    content: attr(placeholder);
+    font-style: italic;
+    opacity: 0.3;
+}
+
 #word-count {
     position: fixed;
     left: 1em;

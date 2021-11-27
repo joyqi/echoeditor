@@ -25,6 +25,11 @@ function textHandler(text) {
     }
 
     document.title = title;
+
+    // empty text
+    if (text == "\n") {
+        editor.textContent = '';
+    }
 }
 
 function isTypingText(e) {
