@@ -5,8 +5,9 @@ const wordCount = $('#word-count');
 let keySoundAudio = null;
 let ready = false;
 const fonts = {
-    song: '"Times New Roman", STFangSong, FangSong, SimSun, serif',
-    hei: 'Arial, STHeiti, Hei, "Microsoft YaHei", SimHei, sans-serif',
+    song: '"Times New Roman", STSong, Song, SimSun, serif',
+    fangsong: '"Times New Roman", STFangSong, FangSong, SimFang, SimSun, serif',
+    hei: 'Arial, "Hiragino Sans GB", STHeiti, Hei, "Microsoft YaHei", SimHei, sans-serif',
     kai: 'Georgia, STKaiti, Kai, SimKai, serif'
 };
 
