@@ -130,7 +130,9 @@ function editorHandler() {
     if (!supportPlainText) {
         editor.addEventListener('paste', e => {
             e.preventDefault();
-            const text = (e.originalEvent || e).clipboardData.getData('text/plain');
+            let text = (e.originalEvent || e).clipboardData.getData('text/plain');
+            text = text.replace(/\r\n/g, "\n")
+                .replace(/\t/g, "    ");
             document.execCommand('insertText', false, text);
         });
     }
