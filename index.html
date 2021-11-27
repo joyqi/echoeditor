@@ -10,7 +10,7 @@
             <source src="./audio/click.wav">
         </audio>
         <details id="config">
-            <summary>选项</summary>
+            <summary></summary>
             
             <br>
             <label for="font-family">字体</label><br>
@@ -40,7 +40,9 @@
             </select>
         </details>
         <div id="word-count">0</div>
-        <div id="editor" spellcheck="false" contenteditable="true" autofocus placeholder="轻击键盘，静候回音..."></div>
+        <div id="wrapper">
+            <div id="editor" spellcheck="false" contenteditable="true" autofocus placeholder="轻击键盘，静候回音..."></div>
+        </div>
         <script src="./script.js"></script>
     </body>
 </html>

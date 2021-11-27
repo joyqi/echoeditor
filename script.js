@@ -1,6 +1,7 @@
 const $ = (sel) => document.querySelector(sel);
 const config = loadConfig();
 const editor = $('#editor');
+const wrapper = $('#wrapper');
 const wordCount = $('#word-count');
 let keySoundAudio = null;
 let ready = false;
@@ -138,6 +139,10 @@ function editorHandler() {
         }
     });
 
+    wrapper.addEventListener('scroll', (e) => {
+        console.log(e);
+    });
+
     if (!supportPlainText) {
         editor.addEventListener('paste', e => {
             e.preventDefault();
@@ -162,7 +167,7 @@ applyConfig('#font-size', 'fontSize', (fontSize) => {
 applyConfig('#text-color', 'textColor', (color) => {
     editor.style.color = color;
 
-    editor.style.borderColor = makeStyle(color, 0.3);
+    wrapper.style.borderColor = makeStyle(color, 0.3);
     wordCount.style.color = makeStyle(color, 0.5);
 });
 
