@@ -5,6 +5,7 @@ const wrapper = $('#wrapper');
 const wordCount = $('#word-count');
 let keySoundAudio = null;
 let ready = false;
+let lastMouseMove = 0;
 const fonts = {
     song: '"Times New Roman", STSong, Song, SimSun, serif',
     fangsong: '"Times New Roman", STFangSong, FangSong, SimFang, SimSun, serif',
@@ -142,6 +143,19 @@ function editorHandler() {
     wrapper.addEventListener('scroll', (e) => {
         console.log(e);
     });
+
+    ['mousemove', 'mousedown', 'touch'].forEach((e) => {
+        window.addEventListener(e, () => {
+            lastMouseMove = Date.now();
+            document.body.classList.remove('silence');
+        });
+    });
+
+    setInterval(() => {
+        if (lastMouseMove != 0 && Date.now() - lastMouseMove >= 2000) {
+            document.body.classList.add('silence');
+        }
+    }, 500);
 
     if (!supportPlainText) {
         editor.addEventListener('paste', e => {

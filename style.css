@@ -9,7 +9,7 @@ html {
 }
 
 body {
-    padding: 5em 1em 10em 1em;
+    padding: 10vh 1em 30vh 1em;
     margin: 0;
     height: 100%;
 }
@@ -18,20 +18,32 @@ summary {
     cursor: pointer;
 }
 
+[placeholder]:empty::before {
+    content: attr(placeholder);
+    font-style: italic;
+    opacity: 0.3;
+}
+
+.silence, .silence * {
+    cursor: none;
+}
+
 #config {
     position: fixed;
     right: 1em;
     top: 1em;
     font-size: 14px;
-    border: 1px solid #777;
-    padding: 1em;
     background: #FFF;
+    border: 1px solid #c7c7c7;
+    padding: 1em;
 }
 
-[placeholder]:empty::before {
-    content: attr(placeholder);
-    font-style: italic;
-    opacity: 0.3;
+.silence #config {
+    display: none;
+}
+
+.silence #config[open] {
+    display: block;
 }
 
 #word-count {
