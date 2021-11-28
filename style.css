@@ -38,7 +38,7 @@ summary {
     padding: 1em;
 }
 
-.silence #config {
+.silence #config, .silence #word-count {
     display: none;
 }
 
