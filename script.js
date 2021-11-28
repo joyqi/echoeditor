@@ -116,18 +116,18 @@ function playKeySound() {
     }
 }
 
-function editorHandler() {
-    let supportPlainText = true;
-
-    editor.innerText = localStorage.getItem('draft');
-    textHandler(editor.innerText);
-
+function supportPlainText() {
     try {
         editor.contentEditable = 'plaintext-only';
-        supportPlainText = editor.contentEditable == 'plaintext-only';
+        return editor.contentEditable == 'plaintext-only';
     } catch {
-        supportPlainText = false;
+        return false;
     }
+}
+
+function editorHandler() {
+    editor.innerText = localStorage.getItem('draft');
+    textHandler(editor.innerText);
 
     editor.addEventListener('input', function() {
         localStorage.setItem('draft', this.innerText);
@@ -144,10 +144,12 @@ function editorHandler() {
         console.log(e);
     });
 
-    ['mousemove', 'mousedown', 'touch'].forEach((e) => {
-        window.addEventListener(e, () => {
-            lastMouseMove = Date.now();
-            document.body.classList.remove('silence');
+    ['mousemove', 'mousedown', 'touch'].forEach((type) => {
+        window.addEventListener(type, (e) => {
+            if (e.type != 'mousemove' || (e.movementX > 2 || e.movementY > 2)) {
+                lastMouseMove = Date.now();
+                document.body.classList.remove('silence');
+            }
         });
     });
 
@@ -157,7 +159,7 @@ function editorHandler() {
         }
     }, 500);
 
-    if (!supportPlainText) {
+    if (!supportPlainText()) {
         editor.addEventListener('paste', e => {
             e.preventDefault();
             let text = (e.originalEvent || e).clipboardData.getData('text/plain');
@@ -202,8 +204,8 @@ applyConfig('#key-sound', 'keySound', (keySound) => {
         if (ready) {
             apply();
         } else {
-            ['keydown', 'click', 'touch'].forEach((e) => {
-                window.addEventListener(e, () => {
+            ['keydown', 'click', 'touch'].forEach((type) => {
+                window.addEventListener(type, () => {
                     if (!ready) {
                         ready = true;
                         apply();
