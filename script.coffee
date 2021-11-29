@@ -100,7 +100,6 @@ class Config
             when 'marginBottom'
                 document.body.style.paddingBottom = value + 'vh'
             when 'width'
-                console.log value
                 elements.wrapper.style.maxWidth = value + 'px'
             when 'fontFamily'
                 document.body.style.fontFamily = if imports? then imports[value] || value else value
@@ -210,6 +209,10 @@ class Editor
 
     effectHideCursor: ->
         lastMove = 0;
+        configOpen = no
+
+        elements.config.addEventListener 'toggle', ->
+            configOpen = this.hasAttribute 'open'
 
         ['mousemove', 'mousedown', 'touch'].forEach (type) ->
             window.addEventListener type, (e) ->
@@ -218,7 +221,7 @@ class Editor
                     document.body.classList.remove 'silence'
 
         setInterval ->
-            if lastMove != 0 && Date.now() - lastMove >= 2000
+            if lastMove != 0 && !configOpen && Date.now() - lastMove >= 2000
                 document.body.classList.add 'silence'
         , 500
 
