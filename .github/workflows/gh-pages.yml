@@ -16,7 +16,7 @@ jobs:
           node-version: '14'
       - run: |
           npm install
-          npm run build
+          npm run build:prod
           mkdir build
           cp -r audio i18n index.html ./build/
       - name: Deploy 🚀
