@@ -38,7 +38,12 @@ summary {
     padding: 1em;
 }
 
-.silence #config, .silence #word-count {
+#config label {
+    display: block;
+    margin-top: 1.5em;
+}
+
+.silence #config, .silence #counter {
     display: none;
 }
 
@@ -46,7 +51,7 @@ summary {
     display: block;
 }
 
-#word-count {
+#counter {
     position: fixed;
     left: 1em;
     top: 1em;
