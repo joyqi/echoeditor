@@ -1,0 +1,27 @@
+{
+  "name": "echoeditor",
+  "version": "1.0.0",
+  "description": "一个简洁而又顺手的编辑器，没有Markdown，没有所见即所得。没有花里胡哨的功能，专注于文字创作本身，打开网址就可以开始写，关掉网页就可以去干别的。没有任何网络请求，你的草稿将存放在本地。",
+  "main": "script.js",
+  "scripts": {
+    "build:dev": "cp style.css style.min.css && npx coffee -c script.coffee && cp script.js script.min.js && npx pug --doctype html index.pug",
+    "build:prod": "npx uglifycss --output style.min.css style.css && npx coffee -c script.coffee && npx uglify-js script.js -o script.min.js && npx pug --doctype html index.pug"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joyqi/echoeditor.git"
+  },
+  "author": "joyqi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joyqi/echoeditor/issues"
+  },
+  "homepage": "https://github.com/joyqi/echoeditor#readme",
+  "devDependencies": {
+    "coffeescript": "^2.6.1",
+    "pug": "^3.0.2",
+    "pug-cli": "^1.0.0-alpha6",
+    "uglify-js": "^3.14.3",
+    "uglifycss": "0.0.29"
+  }
+}

@@ -1,0 +1,53 @@
+html
+    head
+        meta(charset="utf-8")
+        meta(
+            name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
+        )
+        title ...
+        style
+            include style.min.css
+    body
+        details#config
+            summary
+
+            label(for="font-family")
+            select#font-family
+
+            label(for="font-size")
+            input#font-size(
+                type="range"
+                step="1"
+                min="13"
+                max="25"
+            )
+
+            label(for="text-color")
+            input#text-color(
+                type="color"
+                pattern="#[0-9A-Fa-f]{6}"
+                autocomplete="off"
+            )
+
+            label(for="background-color")
+            input#background-color(
+                type="color"
+                pattern="#[0-9A-Fa-f]{6}"
+                autocomplete="off"
+            )
+
+            label(for="key-sound")
+            select#key-sound
+
+        #counter 0
+
+        #wrapper
+            #editor(
+                spellcheck="false"
+                contenteditable="true"
+                autofocus
+            )
+        
+        script
+            include script.min.js
