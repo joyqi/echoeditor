@@ -1,0 +1,29 @@
+{
+    "placeholder": "Just type some words...",
+    "config": {
+        "font-family": {
+            "label": "font-family",
+            "options": {
+                "sans-serif": "Sans serif",
+                "serif": "Serif",
+                "monospace": "Monospace"
+            }
+        },
+        "font-size": {
+            "label": "Font Size"
+        },
+        "text-color": {
+            "label": "Text Color"
+        },
+        "background-color": {
+            "label": "Background Color"
+        },
+        "key-sound": {
+            "label": "Keypress Sound",
+            "options": {
+                "none": "None",
+                "click": "Typewriter"
+            }
+        }
+    }
+}

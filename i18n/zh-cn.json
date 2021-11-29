@@ -1,0 +1,47 @@
+{
+    "placeholder": "轻击键盘，静候回音...",
+    "config": {
+        "font-family": {
+            "label": "字体",
+            "options": {
+                "sans-serif": "无衬线字体",
+                "serif": "有衬线字体",
+                "monospace": "等宽字体"
+            },
+            "import": {
+                "song": {
+                    "name": "宋体",
+                    "value": "\"Times New Roman\", STSong, Song, SimSun, serif"
+                },
+                "fangsong": {
+                    "name": "仿宋",
+                    "value": "\"Times New Roman\", STFangSong, FangSong, SimFang, SimSun, serif"
+                },
+                "hei": {
+                    "name": "黑体",
+                    "value": "Arial, \"Hiragino Sans GB\", STHeiti, Hei, \"Microsoft YaHei\", SimHei, sans-serif"
+                },
+                "kai": {
+                    "name": "楷体",
+                    "value": "Georgia, STKaiti, Kai, SimKai, serif"
+                }
+            }
+        },
+        "font-size": {
+            "label": "字体大小"
+        },
+        "text-color": {
+            "label": "文字颜色"
+        },
+        "background-color": {
+            "label": "背景颜色"
+        },
+        "key-sound": {
+            "label": "键盘音",
+            "options": {
+                "none": "静音",
+                "click": "打字机"
+            }
+        }
+    }
+}
