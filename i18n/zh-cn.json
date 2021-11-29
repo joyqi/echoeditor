@@ -1,6 +1,15 @@
 {
     "placeholder": "轻击键盘，静候回音...",
     "config": {
+        "margin-top": {
+            "label": "上边距"
+        },
+        "margin-bottom": {
+            "label": "下边距"
+        },
+        "width": {
+            "label": "编辑器宽度"
+        },
         "font-family": {
             "label": "字体",
             "options": {

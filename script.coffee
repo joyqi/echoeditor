@@ -42,6 +42,9 @@ createAudioPlayer = (url) ->
 class Config
     constructor: (@editor) ->
         defaultConfig =
+            marginTop: 10
+            marginBottom: 30
+            width: 780
             fontFamily: 'sans-serif'
             fontSize: 16
             textColor: '#000000',
@@ -92,6 +95,13 @@ class Config
     # make effect
     effect: (name, value, imports) ->
         switch name
+            when 'marginTop'
+                document.body.style.paddingTop = value + 'vh'
+            when 'marginBottom'
+                document.body.style.paddingBottom = value + 'vh'
+            when 'width'
+                console.log value
+                elements.wrapper.style.maxWidth = value + 'px'
             when 'fontFamily'
                 document.body.style.fontFamily = if imports? then imports[value] || value else value
             when 'fontSize'

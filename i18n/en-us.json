@@ -1,6 +1,15 @@
 {
     "placeholder": "Just type some words...",
     "config": {
+        "margin-top": {
+            "label": "Margin Top"
+        },
+        "margin-bottom": {
+            "label": "Margin Bottom"
+        },
+        "width": {
+            "label": "Editor Width"
+        },
         "font-family": {
             "label": "font-family",
             "options": {
